@@ -4,11 +4,16 @@ const app = Vue.createApp({
       inputA: '',
       inputB: '',
       countInputAChange: 0,
+      valueIsGreaterThan: '',
     };
   },
   watch: {
     inputA() {
       this.countInputAChange++;
+    },
+    addedValue(val) {
+      this.valueIsGreaterThan =
+        'Computed value greater than ' + Math.floor(val / 1000) * 1000;
     },
   },
   computed: {

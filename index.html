@@ -16,7 +16,12 @@
         <input type="text" v-model="inputB" />
       </div>
       <div>Output of adding (using computed): {{ addedValue }}</div>
-      <div>Watching when the 1st input changes: Changed {{ countInputAChange }} times</div>
+      <div>
+        Watching when the 1st input changes: Changed {{ countInputAChange }}
+        times
+      </div>
+      <div>We can also watch computed values:</div>
+      <div>{{ valueIsGreaterThan}}</div>
     </div>
   </body>
 </html>
