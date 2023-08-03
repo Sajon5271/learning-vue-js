@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Basics</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/vue@next" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Vue Course Goals</h1>
+    </header>
+    <section id="user-goals">
+      <h2>My course goals</h2>
+      <input v-model="goalsInput" type="text" @keyup.enter="addGoal" />
+      <button @click="addGoal">Add Goal</button>
+      <p v-if="!goals.length">
+        No goals have been added yet - please start adding some!
+      </p>
+      <ul v-else>
+        <li v-for="(goal, idx) in goals" :key="goal" @click="removeGoal(idx)">
+          {{idx}}. {{goal}}
+        </li>
+      </ul>
+      <h2>This is an example of iterating through object</h2>
+      <ul>
+        <li v-for="(val, key, idx) in demoObject">{{idx}}.{{key}}: {{val}}</li>
+      </ul>
+      <h2>This is an example of iterating through Range</h2>
+      <ul>
+        <li v-for="val in 5">{{val}}</li>
+      </ul>
+    </section>
+  </body>
+</html>
