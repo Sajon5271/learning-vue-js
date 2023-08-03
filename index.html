@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Mastery</title>
+    <link rel="stylesheet" href="app.css" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <h1>My start to Vue</h1>
+    <div>
+      Go to the excercise: <a href="./excercise/">Here is 1</a> and
+      <a href="./excercise-event/">Here is 2</a>
+    </div>
+    <div id="vueContext">
+      <h3>{{textToShow}}</h3>
+      <div>
+        Here we are binding to a attribute:
+        <a v-bind:href="bindLink">Vue Official Website</a>
+        <!-- Same code but using shorthand : instead of v-bind: -->
+        <a :href="bindLink">Vue Official Website</a>
+      </div>
+      <!-- First one is bad, executes if anything change, should use computed -->
+      <div>
+        Checking if function on data works: {{checkIfFnWorks()}}, also from
+        methods: {{fnInMethod()}}.
+      </div>
+      <div v-html="htmlCode"></div>
+      <button type="button" v-on:click="changeArray()">Add more to list</button>
+      <br />
+      <!-- Only functon name works, also events can be modified -->
+      <input
+        v-on:input="changeText($event)"
+        v-on:keyup.enter="enterEventText"
+        type="text" />
+      <!-- Same code, but with @ replacing v-on: -->
+      <input
+        @input="changeText($event)"
+        @keyup.enter="enterEventText"
+        type="text" />
+      <div>Value on input is: {{inputText}}</div>
+      <ul>
+        <li v-for="str in arrayOfString">{{str}}</li>
+      </ul>
+      <div>This same for loop should only run once</div>
+      <!-- v-once works both on parent and on the child here -->
+      <ul v-once>
+        <li v-for="str in arrayOfString">{{str}}</li>
+      </ul>
+    </div>
+  </body>
+</html>
